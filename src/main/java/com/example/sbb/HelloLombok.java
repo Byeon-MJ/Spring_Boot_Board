@@ -11,7 +11,7 @@ public class HelloLombok {
     
     public static void main(String[] args) {
         HelloLombok helloLombok = new HelloLombok();
-        helloLombok.setHello("헬로");
+        helloLombok.setHello("Hello");
         helloLombok.setLombok(5);
 
         System.out.println(helloLombok.getHello());
