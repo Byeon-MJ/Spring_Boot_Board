@@ -13,3 +13,4 @@ public class MainController {
         return "Hello. Welcome to SBB.";
     }
 }
+
