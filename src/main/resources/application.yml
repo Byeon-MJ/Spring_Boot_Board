@@ -18,9 +18,9 @@ spring:
   # JPA
   jpa:
     hibernate:
-      ddl-auto: update  # 테이블 생성 전략
+      ddl-auto: update  # 테이블 생성 전략, 엔티티를 기준으로 데이터의 테이블을 생성하는 규칙을 설정
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.H2Dialect  # 스프링 부트와 하이버네이트를 함께 사용할 때 필요한 설정 항목
         format_sql: true
         show_sql: true
