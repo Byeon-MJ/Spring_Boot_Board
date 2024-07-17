@@ -21,8 +21,14 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// H2 데이터베이스
 	runtimeOnly 'com.h2database:h2'
+
+	// JPA 환경 설정
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	
+	// JUNIT 추가
 	testImplementation 'org.junit.jupiter:junit-jupiter'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
