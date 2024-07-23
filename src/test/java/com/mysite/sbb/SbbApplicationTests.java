@@ -1,5 +1,10 @@
-package com.example.sbb;
+package com.mysite.sbb;
 
+import com.mysite.sbb.answer.Answer;
+import com.mysite.sbb.answer.AnswerRepository;
+import com.mysite.sbb.question.Question;
+import com.mysite.sbb.question.QuestionRepository;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -35,10 +40,10 @@ class SbbApplicationTests {
     @Test
     void testFindAll() {
         List<Question> all = this.questionRepository.findAll();
-        assertEquals(2, all.size());    // 테스트에서 에상한 결과와 실제 결과가 동일한지 확인
+        assertEquals(1, all.size());    // 테스트에서 에상한 결과와 실제 결과가 동일한지 확인
 
         Question q1 = all.get(0);
-        assertEquals("sbb가 무엇인가요?", q1.getSubject());
+        assertEquals("스프링부트 모델 질문입니다.", q1.getSubject());
     }
 
     @Test
@@ -102,10 +107,32 @@ class SbbApplicationTests {
     }
 
     @Test
-    void testFindAnswerById() {
+    void testFindAnswerById() { // 답변 데이터 조회하기
         Optional<Answer> oa = this.answerRepository.findById(1);
         assertTrue(oa.isPresent());
         Answer a = oa.get();
         assertEquals(2, a.getQuestion().getId());
+    }
+
+    @Test
+    void testFindAnswerByQuestionId() { // 질문에 대한 답변 조회하기
+        List<Answer> aList = this.answerRepository.findByQuestionId(2);
+        Answer a = aList.get(0);
+        System.out.println("Number of Answer: " + aList.size());
+        assertEquals("네 자동으로 생성됩니다.", a.getContent());
+    }
+
+    // question 객체에서 answer 찾기
+    @Transactional  // LazyInitializationException 방지
+    @Test
+    void testFindAnswerByQuestion() {
+        Optional<Question> oq = this.questionRepository.findById(2);
+        assertTrue(oq.isPresent());
+        Question q = oq.get();
+
+        List<Answer> aList = q.getAnswerList();
+        System.out.println("Number of Answer: " + aList.size());
+        assertEquals(3, aList.size());
+        assertEquals("네 자동으로 생성됩니다.", aList.get(0).getContent());
     }
 }
