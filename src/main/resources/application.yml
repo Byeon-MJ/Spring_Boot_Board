@@ -11,7 +11,7 @@ spring:
       enabled: true # H2 콘솔 접속 여부
       path: /h2-console # H2 콘솔 접속 URL
   datasource:
-    url: jdbc:h2:~/SBB/local  # 데이터베이스 접속 경로
+    url: jdbc:h2:~/TIL/SBB/local  # 데이터베이스 접속 경로
     driverClassName: org.h2.Driver  # 데이터베이스 드라이버 클래스명
     username: sa  # 데이터베이스 사용자명
     password:  # 데이터베이스 비밀번호
@@ -22,5 +22,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect  # 스프링 부트와 하이버네이트를 함께 사용할 때 필요한 설정 항목
+        # 콘솔에 SQL 출력 설정
         format_sql: true
         show_sql: true
