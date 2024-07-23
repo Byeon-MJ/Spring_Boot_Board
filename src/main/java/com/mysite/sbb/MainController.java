@@ -1,4 +1,4 @@
-package com.example.sbb;
+package com.mysite.sbb;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +11,11 @@ public class MainController {
     @ResponseBody
     public String index(){
         return "Hello. Welcome to SBB.";
+    }
+
+    @GetMapping("/")
+    public String root(){
+        return "redirect:/question/list";
     }
 }
 
