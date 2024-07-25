@@ -37,6 +37,9 @@ dependencies {
 	// ThymeLeaf 템플릿 엔진 추가
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+
+	// Spring Boot Validation 라이브러리 설치
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 }
 
 tasks.named('test') {
