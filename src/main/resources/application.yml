@@ -13,7 +13,7 @@ spring:
   datasource:
 #    url: jdbc:h2:~/TIL/SBB/local  # 데이터베이스 접속 경로
 #    url: jdbc:h2:~/Desktop/Study/Spring_Boot_Board/local  # 데이터베이스 접속 경로
-    url: jdbc:h2:~/Study/jump2sbb/local  # 데이터베이스 접속 경로
+    url: jdbc:h2:~/Desktop/Study/jump2sbb/local  # 데이터베이스 접속 경로
     driverClassName: org.h2.Driver  # 데이터베이스 드라이버 클래스명
     username: sa  # 데이터베이스 사용자명
     password:  # 데이터베이스 비밀번호
